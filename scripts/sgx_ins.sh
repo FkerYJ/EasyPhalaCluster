@@ -71,7 +71,7 @@ echo "Install Sgx device"
   elif [ ${DISTRIB_RELEASE} == "18.04" ];then
     phala_scripts_install_sgx_k5_4
   fi
-${CURRENT_DIR}/../tools/sgx-enable
+${CURRENT_DIR}/../tools/sgx_enable
  ${CURRENT_DIR}/../tools/sgx-detect
 
 
