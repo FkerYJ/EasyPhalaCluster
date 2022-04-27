@@ -110,7 +110,11 @@ def wk_ins():
   if core<=0:exit(0)
   fa.write(f"CORES={core}")
   fa.close()
-  shell=f"""docker-compose -f {wkPwd}docker-compose.yml --env-file {wkPwd}.env up -d"""
+  shell=f"""
+  docker-compose -f {wkPwd}docker-compose.yml --env-file {wkPwd}.env up -d
+  echo "本机绑定的所有IP："
+  ip a|grep inet
+  """
   os.system(shell)
 
 def wk_list():print("稍后开发")
