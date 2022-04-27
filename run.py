@@ -48,7 +48,8 @@ def sgx_ins():
   """
   os.system(shell)
 
-def node_ins():
+def 
+_ins():
   docker_ins()
   nodePwd=f"{pwd}/node/"
   if not os.path.exists(nodePwd):
@@ -87,10 +88,11 @@ def add_phy():
   shell=f"""docker-compose -f {_phyPwd}docker-compose.yml --env-file {_phyPwd}/.env up -d"""
   os.system(shell)
 
-def node_remove():
+def node_
+():
   shell=f"""
      docker stop $(docker ps -q) & docker rm $(docker ps -aq) 1
-     apt -y autoremove node 
+     apt -y autoremove nodejs
      rm -rf {pwd}/phy
   """
   os.system(shell)
