@@ -1,5 +1,6 @@
 .vscode
-node
+/node
 /phy/
 /wk/
 /conn.py
+/.gitignore
