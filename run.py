@@ -87,8 +87,7 @@ def add_phy():
   shell=f"""docker-compose -f {_phyPwd}docker-compose.yml --env-file {_phyPwd}/.env up -d"""
   os.system(shell)
 
-def node_
-():
+def node_remove():
   shell=f"""
      docker stop $(docker ps -q) & docker rm $(docker ps -aq) 1
      apt -y autoremove nodejs
