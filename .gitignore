@@ -1,4 +1,5 @@
-.vsocode
+.vscode
 node
-phy/
-wk/
+/phy/
+/wk/
+/conn.py
