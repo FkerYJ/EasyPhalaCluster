@@ -48,8 +48,7 @@ def sgx_ins():
   """
   os.system(shell)
 
-def 
-_ins():
+def node_ins():
   docker_ins()
   nodePwd=f"{pwd}/node/"
   if not os.path.exists(nodePwd):
