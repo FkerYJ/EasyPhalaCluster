@@ -1,0 +1,22 @@
+version: "3"
+services:
+
+
+ phala-pherry:
+   image: ${PHERRY_IMAGE}
+   container_name: phala-pherry
+   hostname: phala-pherry
+   restart: always
+   entrypoint:
+    [
+      "/root/pherry",
+      "-r",
+      "--parachain",
+      "--mnemonic=${MNEMONIC}",
+      "--substrate-ws-endpoint=ws://${NODEIP}:9945",
+      "--collator-ws-endpoint=ws://${NODEIP}:9944",
+      "--pruntime-endpoint=http://${WORKERIP}:8000",
+      "--operator=${OPERATOR}",
+      "--fetch-blocks=512",
+      "--auto-restart"
+    ]
