@@ -60,8 +60,8 @@ def add_phy():
   global phyCnt
   phyPwd=f"{pwd}/phy/"
   nodePwd=f"{pwd}/node/"
-  if not os.path.exists(nodePwd):
-    print("请先完成主节点的安装");exit(0)
+  # if not os.path.exists(nodePwd):
+  #   print("请先完成主节点的安装");exit(0)
   try:os.makedirs(phyPwd)
   except:pass
   print("""注意:每个worker需要独立gas,本程序将gas地址作为worker的标识符，
