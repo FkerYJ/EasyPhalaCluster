@@ -72,6 +72,6 @@ echo "Install Sgx device"
     phala_scripts_install_sgx_k5_4
   fi
 ${CURRENT_DIR}/../tools/sgx_enable
- ${CURRENT_DIR}/../tools/sgx-detect
+${CURRENT_DIR}/../tools/sgx-detect
 
 
