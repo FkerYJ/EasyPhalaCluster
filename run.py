@@ -18,8 +18,8 @@ def save_cfg():
 
 
 def load_cfg():
-    global cfgs,dbg
-    if dbg:print("dbg model is enabled")
+    global cfgs
+    if args.dbg!="off":print("dbg model is enabled")
     cfgFile=cfgPwd+"cfg.json"
     try:
         with open(cfgFile,"r+") as fr: cfgs=js.load(fr)
@@ -141,7 +141,6 @@ def parse_args():
 
 if __name__ == "__main__": 
   args = parse_args()
-  if args.dbg!="off": dbg=True
   if args.add!="off": add_bashrc()
   check_authority()
   load_cfg()
