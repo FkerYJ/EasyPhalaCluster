@@ -19,6 +19,7 @@ def self_remove():
   """
   pass
 
+
 def self_update():
   shell="""
   cd /opt/fctok/EasyPhalaCluster/&&git pull
