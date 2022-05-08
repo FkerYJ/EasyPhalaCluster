@@ -8,6 +8,15 @@ from shortcut import *
 pwd=path.dirname(path.abspath(__file__))+"/"
 cfgPwd=pwd+"/config/"
 
+def self_update():
+  shell="""
+  rm -rf /opt/fctok/EasyPhalaCluster
+  git clone https://gitee.com/FkerYJ/EasyPhalaCluster /opt/fctok/EasyPhalaCluster
+  chmod 777 /opt/fctok/EasyPhalaCluster/run.sh
+  """
+  os.system(shell)
+
+
 def save_cfg():
     global cfgFile
     try:os.makedirs(cfgPwd)
@@ -154,6 +163,7 @@ if __name__ == "__main__":
 5.主节点功能：查看主节点运行状态
 6.主节点功能：卸载
 7.检测SGX配置
+8.更新代码
 请输入选项对应序号：
 """,end='')
   act=int(input())
@@ -167,4 +177,5 @@ if __name__ == "__main__":
   if act==5:node_status()
   if act==6:node_remove()
   if act==7:sgx_check()
+  if act==8:self_update()
   save_cfg()
