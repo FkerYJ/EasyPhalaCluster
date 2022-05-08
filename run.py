@@ -36,7 +36,6 @@ def check_authority():
     exit(0)
 
 def docker_ins():
-  add_bashrc()
   shell=f"""
   apt install curl wget -y
   bash {pwd}/scripts/docker_ins.sh
@@ -135,12 +134,14 @@ def node_status():
 def parse_args():
     parser = argparse.ArgumentParser(description="Phala主从模式部署easy脚本")
     parser.add_argument('-dbg',nargs="?", default='off', help='debug')
+    parser.add_argument('-add',nargs="?", default='off', help='add shortcut')
     parsed_args = parser.parse_args()
     return parsed_args
 
 if __name__ == "__main__": 
   args = parse_args()
   if args.dbg!="off": dbg=True
+  if args.add!="off": add_bashrc()
   check_authority()
   load_cfg()
   print("""
