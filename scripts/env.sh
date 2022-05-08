@@ -1,7 +1,0 @@
-alias cdepha="cd /opt/fctok/EasyPhalaCluster/"
-alias bashrc="vim ~/.bashrc;source ~/.bashrc"
-alias profile="vim ~/.profile;source ~/.profile"
-alias dk="docker"
-alias apti="apt install"
-alias aptr="apt autoremove"
-alias rf="rm -rf"

@@ -44,6 +44,12 @@ def docker_ins():
   
 def sgx_ins():
   shell=f"""
+  {pwd}/tools/sgx_enable
+  """
+  ret=os.popen(shell)
+  print(ret.read())
+  return
+  shell=f"""
   bash {pwd}scripts/sgx_ins.sh
   """
   os.system(shell)
@@ -136,16 +142,17 @@ if __name__ == "__main__":
   check_authority()
   load_cfg()
   print("""
-    1.在本机安装主节点
-    2.在本机安装worker
-    3.主节点功能：关联worker到主节点
-    4.主节点功能：查看worker列表
-    5.主节点功能：查看主节点运行状态
-    6.主节点功能：卸载
-    请输入选项对应序号：
-    """,end='')
+1.在本机安装主节点
+2.在本机安装worker
+3.主节点功能：关联worker到主节点
+4.主节点功能：查看worker列表
+5.主节点功能：查看主节点运行状态
+6.主节点功能：卸载
+7.检测SGX配置
+请输入选项对应序号：
+""",end='')
   act=int(input())
-  if act not in [1,2,3,4,5,6]:
+  if type(act)!=int or act>7 or act<1 :
     print("选项不存在，退出")
     exit(0)
   if act==1:node_ins()
@@ -154,4 +161,5 @@ if __name__ == "__main__":
   if act==4:wk_list()
   if act==5:node_status()
   if act==6:node_remove()
+  if act==7:sgx_ins()
   save_cfg()
