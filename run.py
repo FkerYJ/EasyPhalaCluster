@@ -12,10 +12,12 @@ phyPwd=f"{dataPwd}/phy/"
 nodePwd=f"{dataPwd}/node/"
 wkPwd=f"{dataPwd}wk/"
 
+def self_remove():
+  pass
+
 def self_update():
   shell="""
-  rm -rf /opt/fctok/EasyPhalaCluster/;mkdir /opt/fctok/EasyPhalaCluster/
-  git clone https://gitee.com/FkerYJ/EasyPhalaCluster /opt/fctok/EasyPhalaCluster
+  cd /opt/fctok/EasyPhalaCluster/&&git pull
   chmod 777 /opt/fctok/EasyPhalaCluster/run.sh
   """
   os.system(shell)
