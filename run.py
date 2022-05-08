@@ -52,7 +52,7 @@ def debug():
   print("dbg model is enabled")
   shell="""
     mkdir /var/pha; cd /var/pha
-    rm -rf solo-mining* main.zip* *.2;
+    rm -rf main.zip*;
     wget https://github.com/Phala-Network/solo-mining-scripts/archive/refs/heads/main.zip
     unzip main.zip -d /var/pha
   """
