@@ -1,7 +1,6 @@
 version: "3"
 services:
 
-
  phala-pherry:
    image: ${PHERRY_IMAGE}
    container_name: phala-pherry
