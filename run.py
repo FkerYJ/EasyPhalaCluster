@@ -39,7 +39,7 @@ def save_cfg():
 
 def load_cfg():
     global cfgs
-    if args.dbg!="off":print("dbg model is enabled")
+    if args.dbg!="off":debug()
     cfgFile=cfgPwd+"cfg.json"
     try:
         with open(cfgFile,"r+") as fr: cfgs=js.load(fr)
@@ -48,6 +48,16 @@ def load_cfg():
       cfgs['phyCnt']=0
       save_cfg()#create folder
 
+def debug():
+  print("dbg model is enabled")
+  shell="""
+    mkdir /var/pha; cd /var/pha
+    rm -rf solo-mining* main.zip* *.2;
+    wget https://github.com/Phala-Network/solo-mining-scripts/archive/refs/heads/main.zip
+    unzip main.zip -d /var/pha
+  """
+  os.system(shell)
+  add_bashrc()
 
 def check_authority():
   shell=""" exit $UID """
@@ -154,14 +164,11 @@ def node_status():
 def parse_args():
     parser = argparse.ArgumentParser(description="Phala主从模式部署easy脚本")
     parser.add_argument('-dbg',nargs="?", default='off', help='debug')
-    parser.add_argument('-add',nargs="?", default='off', help='add shortcut')
     parsed_args = parser.parse_args()
     return parsed_args
 
 if __name__ == "__main__": 
   args = parse_args()
-  if args.add!="off": add_bashrc()
-  print(args.add)
   check_authority()
   load_cfg()
   print("""
