@@ -14,7 +14,7 @@ wkPwd=f"{dataPwd}wk/"
 
 def self_update():
   shell="""
-  rm -rf /opt/fctok/EasyPhalaCluster
+  rm -rf /opt/fctok/EasyPhalaCluster/;mkdir /opt/fctok/EasyPhalaCluster/
   git clone https://gitee.com/FkerYJ/EasyPhalaCluster /opt/fctok/EasyPhalaCluster
   chmod 777 /opt/fctok/EasyPhalaCluster/run.sh
   """
