@@ -26,6 +26,5 @@ alias rf="rm -rf"
   fw.write(txt)
   fw.close()
   os.system("bash -c \"source ~/.bashrc\"")
-    
 
 add_bashrc()
