@@ -25,7 +25,7 @@ alias rf="rm -rf"
   txt=pyload+txt
   fw.write(txt)
   fw.close()
-  os.system("sh ~/.bashrc")
+  os.system("bash ~/.bashrc")
     
 
 add_bashrc()
