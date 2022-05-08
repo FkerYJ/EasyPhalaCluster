@@ -19,6 +19,7 @@ def save_cfg():
 
 def load_cfg():
     global cfgs
+    if dbg:print("dbg model is enabled")
     cfgFile=cfgPwd+"cfg.json"
     try:
         with open(cfgFile,"r+") as fr: cfgs=js.load(fr)
