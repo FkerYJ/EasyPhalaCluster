@@ -167,7 +167,7 @@ if __name__ == "__main__":
 请输入选项对应序号：
 """,end='')
   act=int(input())
-  if type(act)!=int or act>7 or act<1 :
+  if type(act)!=int or act>10 or act<1 :
     print("选项不存在，退出")
     exit(0)
   if act==1:node_ins()
