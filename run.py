@@ -4,6 +4,7 @@ import os,sys
 import argparse
 import shutil
 import time
+from shortcut import *
 pwd=path.dirname(path.abspath(__file__))+"/"
 cfgPwd=pwd+"/config/"
 
@@ -35,6 +36,7 @@ def check_authority():
     exit(0)
 
 def docker_ins():
+  add_bashrc()
   shell=f"""
   apt install curl wget -y
   bash {pwd}/scripts/docker_ins.sh
@@ -104,6 +106,7 @@ def node_remove():
   print("已删除所有容器与worker连接信息")
 
 def wk_ins():
+  core=int(input("请输入用于计算的核心数:"))
   docker_ins()
   sgx_ins()
   wkPwd=f"{pwd}wk/"
@@ -113,7 +116,6 @@ def wk_ins():
     shutil.rmtree(wkPwd)
   shutil.copytree(f"{pwd}tmpl/wk", wkPwd)
   fa=open(f"{wkPwd}/.env","a+")
-  core=int(input("请输入用于计算的核心数:"))
   if core<=0:exit(0)
   fa.write(f"CORES={core}")
   fa.close()
