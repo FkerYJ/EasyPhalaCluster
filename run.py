@@ -46,6 +46,7 @@ def load_cfg():
     except:
       cfgs=dict()
       cfgs['phyCnt']=0
+      cfgs['poolAddr']=input("输入默认矿池地址：")
       save_cfg()#create folder
 
 def debug():
@@ -105,15 +106,16 @@ def add_phy():
   print("""注意:每个worker需要独立gas,
           通过重复输入一个桥名称，可以实现对之前worker信息的修改""")
   nickname=input("输入桥名称")
-  gas_addr=input("请输入GAS账户地址:")
-  gas_key=input("请输入GAS账户助记词:")
-  own_addr=input("请输入持有者地址:")
-  wkIp=input("输入worker的内网地址:(如果本机同时部署worker可输入[本机区域网地址])")
-  nodeIp=input("输入nodeIp:(node机内网IP)")
   _phyPwd=phyPwd+nickname+"/"
   if os.path.exists(_phyPwd):
     input("确定修改？输入任意字符确定,CTRL+C取消")
     shutil.rmtree(_phyPwd)
+  gas_addr=input("请输入GAS账户地址:")
+  gas_key=input("请输入GAS账户助记词:")
+  own_addr=input("请输入持有者地址(按回车使用默认池地址):")
+  if not own_addr:own_addr=cfgs['poolAddr']
+  wkIp=input("输入worker的内网地址:[若本机同时部署可输入本机区域网地址]")
+  nodeIp=input("输入nodeIp:(node机内网IP)")
   shutil.copytree(f"{pwd}/tmpl/pherry", _phyPwd)
   cfgs['phyCnt']+=1
   fa=open(f"{_phyPwd}/.env","a+")
