@@ -44,13 +44,15 @@ def docker_ins():
   """
   os.system(shell)
   
-def sgx_ins():
+def sgx_check():
   shell=f"""
   {pwd}/tools/sgx_enable
   """
   ret=os.popen(shell)
   print(ret.read())
   return
+
+def sgx_ins():
   shell=f"""
   bash {pwd}scripts/sgx_ins.sh
   """
@@ -164,5 +166,5 @@ if __name__ == "__main__":
   if act==4:wk_list()
   if act==5:node_status()
   if act==6:node_remove()
-  if act==7:sgx_ins()
+  if act==7:sgx_check()
   save_cfg()
