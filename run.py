@@ -6,7 +6,11 @@ import shutil
 import time
 from shortcut import *
 pwd=path.dirname(path.abspath(__file__))+"/"
-cfgPwd=pwd+"/config/"
+dataPwd="/etc/epha/"
+cfgPwd=dataPwd+"/config/"
+phyPwd=f"{dataPwd}/phy/"
+nodePwd=f"{dataPwd}/node/"
+wkPwd=f"{dataPwd}wk/"
 
 def self_update():
   shell="""
@@ -35,7 +39,7 @@ def load_cfg():
     except:
       cfgs=dict()
       cfgs['phyCnt']=0
-      save_cfg()
+      save_cfg()#create folder
 
 
 def check_authority():
@@ -77,8 +81,6 @@ def node_ins():
 
 def add_phy():
   global phyCnt
-  phyPwd=f"{pwd}/phy/"
-  nodePwd=f"{pwd}/node/"
   # if not os.path.exists(nodePwd):
   #   print("请先完成主节点的安装");exit(0)
   try:os.makedirs(phyPwd)
@@ -120,7 +122,6 @@ def wk_ins():
   core=int(input("请输入用于计算的核心数:"))
   docker_ins()
   sgx_ins()
-  wkPwd=f"{pwd}wk/"
   if os.path.exists(wkPwd):
     print("2s后覆盖安装,CTRL+C取消")
     time.sleep(2)
