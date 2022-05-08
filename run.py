@@ -13,6 +13,10 @@ nodePwd=f"{dataPwd}/node/"
 wkPwd=f"{dataPwd}wk/"
 
 def self_remove():
+  shell="""
+  rm -rf /opt/fctok/EasyPhalaCluster
+  rm /usr/bin/epha
+  """
   pass
 
 def self_update():
